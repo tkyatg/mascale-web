@@ -3,206 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="マッスルカレンダーアプリに関するお問い合わせ">
-    <title>お問い合わせ - マッスルカレンダー</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: #000000;
-            color: #FFFFFF;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 24px 16px;
-        }
-        header {
-            padding: 24px 0;
-            margin-bottom: 32px;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #9FE870;
-            text-decoration: none;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .intro {
-            color: #8A8A8A;
-            margin-bottom: 32px;
-            line-height: 1.8;
-        }
-        .contact-box {
-            background: #1A1A1A;
-            padding: 24px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-        }
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .contact-box p {
-            color: #FFFFFF;
-            line-height: 1.8;
-        }
-        .email {
-            color: #9FE870;
-            font-size: 18px;
-            font-weight: 500;
-        }
-        .notice-box {
-            background: rgba(159, 232, 112, 0.1);
-            border-left: 3px solid #9FE870;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-        }
-        .notice-box h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        ul {
-            list-style: none;
-            margin: 12px 0;
-        }
-        li {
-            padding-left: 24px;
-            margin-bottom: 8px;
-            position: relative;
-            line-height: 1.8;
-        }
-        li:before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: #9FE870;
-        }
-        .topics {
-            display: grid;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-        .topic-card {
-            background: #1A1A1A;
-            padding: 20px;
-            border-radius: 12px;
-        }
-        .topic-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .topic-card p {
-            color: #FFFFFF;
-            line-height: 1.8;
-        }
-        a {
-            color: #9FE870;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 32px 0;
-            color: #8A8A8A;
-            font-size: 14px;
-        }
-    </style>
+    <meta name="description" content="Muscle Calendar アプリに関するお問い合わせ">
+    <title>お問い合わせ - Muscle Calendar </title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="logo">マッスルカレンダー</a>
-        </header>
+<body class="bg-white text-gray-900">
+    <header class="border-b border-gray-200">
+        <nav class="max-w-5xl mx-auto px-4 py-5 flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-500">Muscle Calendar</div>
+            <ul class="flex gap-8 text-sm">
+                <li><a href="privacy.html" class="text-gray-600 hover:text-green-500">プライバシー</a></li>
+                <li><a href="terms.html" class="text-gray-600 hover:text-green-500">利用規約</a></li>
+                <li><a href="contact.html" class="text-gray-600 hover:text-green-500">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main>
-            <h1>お問い合わせ</h1>
-            <p class="intro">
-                マッスルカレンダーに関するご質問、ご意見、不具合の報告などは、お気軽にお問い合わせください
-            </p>
+    <main class="max-w-3xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-2">お問い合わせ</h1>
+        <p class="text-gray-600 mb-8 leading-relaxed">Muscle Calendar に関するご質問、ご意見、不具合の報告などは、お気軽にお問い合わせください</p>
 
-            <div class="contact-box">
-                <h2>メールでのお問い合わせ</h2>
-                <p class="email"><a href="mailto:takuya.atsugi911@gmail.com">takuya.atsugi911@gmail.com</a></p>
-            </div>
+        <div class="bg-gray-100 rounded-xl p-6 mb-4">
+            <h2 class="text-lg font-semibold mb-3">メールでのお問い合わせ</h2>
+            <p class="text-lg text-green-500 font-medium"><a href="mailto:takuya.atsugi911@gmail.com" class="hover:underline">takuya.atsugi911@gmail.com</a></p>
+        </div>
 
-            <div class="contact-box">
-                <h2>対応言語</h2>
-                <p>日本語のみ</p>
-            </div>
+        <div class="bg-gray-100 rounded-xl p-6 mb-4">
+            <h2 class="text-lg font-semibold mb-3">対応言語</h2>
+            <p class="leading-relaxed">日本語のみ</p>
+        </div>
 
-            <div class="contact-box">
-                <h2>レスポンス</h2>
-                <p>迅速に対応いたします</p>
-            </div>
+        <div class="bg-gray-100 rounded-xl p-6 mb-4">
+            <h2 class="text-lg font-semibold mb-3">レスポンス</h2>
+            <p class="leading-relaxed">迅速に対応いたします</p>
+        </div>
 
-            <div class="notice-box">
-                <h3>ご注意ください</h3>
-                <ul>
-                    <li>お問い合わせには、できる限り迅速に対応するよう努めますが、回答までにお時間をいただく場合があります</li>
-                    <li>内容によっては、回答できない場合もございますので、予めご了承ください</li>
-                    <li>営業時間や定休日は設定しておりませんが、個人での運営のため、返信が遅れる場合があります</li>
+        <div class="bg-green-50 border-l-4 border-green-500 rounded-lg p-5 mb-4">
+            <h3 class="font-semibold mb-3">ご注意ください</h3>
+            <ul class="space-y-2">
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-2">•</span>
+                    <span class="leading-relaxed">お問い合わせには、できる限り迅速に対応するよう努めますが、回答までにお時間をいただく場合があります</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-2">•</span>
+                    <span class="leading-relaxed">内容によっては、回答できない場合もございますので、予めご了承ください</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-2">•</span>
+                    <span class="leading-relaxed">営業時間や定休日は設定しておりませんが、個人での運営のため、返信が遅れる場合があります</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold my-8">お問い合わせ内容の例</h2>
+
+        <div class="space-y-4">
+            <div class="bg-gray-100 rounded-xl p-5">
+                <h3 class="font-semibold mb-3">不具合の報告</h3>
+                <p class="leading-relaxed mb-2">アプリの動作に問題がある場合は、以下の情報を含めてご連絡ください：</p>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span class="leading-relaxed">使用している端末（機種名）</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span class="leading-relaxed">OSのバージョン</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span class="leading-relaxed">アプリのバージョン</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span class="leading-relaxed">不具合の詳細</span>
+                    </li>
                 </ul>
             </div>
 
-            <h2 style="margin: 32px 0 16px 0; font-size: 20px;">お問い合わせ内容の例</h2>
+            <div class="bg-gray-100 rounded-xl p-5">
+                <h3 class="font-semibold mb-3">機能のご要望</h3>
+                <p class="leading-relaxed">新しい機能のご提案や改善のアイデアをお待ちしております。あなたの声でMuscle Calendar をより良くしていきます。</p>
+            </div>
 
-            <div class="topics">
-                <div class="topic-card">
-                    <h3>不具合の報告</h3>
-                    <p>アプリの動作に問題がある場合は、以下の情報を含めてご連絡ください：</p>
-                    <ul>
-                        <li>使用している端末（機種名）</li>
-                        <li>OSのバージョン</li>
-                        <li>アプリのバージョン</li>
-                        <li>不具合の詳細</li>
+            <div class="bg-gray-100 rounded-xl p-5">
+                <h3 class="font-semibold mb-3">使い方のご質問</h3>
+                <p class="leading-relaxed">アプリの使い方についてご不明な点がある場合は、お気軽にお問い合わせください。</p>
+            </div>
+
+            <div class="bg-gray-100 rounded-xl p-5">
+                <h3 class="font-semibold mb-3">その他のお問い合わせ</h3>
+                <p class="leading-relaxed">上記以外のご質問やご意見も、お気軽にお寄せください。</p>
+            </div>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 rounded-lg p-5 mt-4">
+            <h3 class="font-semibold mb-3">プライバシーについて</h3>
+            <ul class="space-y-2">
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-2">•</span>
+                    <span class="leading-relaxed">いただいた個人情報は、お問い合わせへの対応にのみ使用し、第三者に提供することはありません</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-2">•</span>
+                    <span class="leading-relaxed">本アプリは個人で開発・運営しているため、サポート体制には限りがあります。あらかじめご了承ください</span>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-200 py-16 mt-20">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+                <div>
+                    <h3 class="font-semibold mb-4">Muscle Calendar</h3>
+                    <p class="text-sm text-gray-600">シンプルなトレーニング記録アプリ</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">リンク</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacy.html" class="text-sm text-gray-600 hover:text-green-500">プライバシーポリシー</a></li>
+                        <li><a href="terms.html" class="text-sm text-gray-600 hover:text-green-500">利用規約</a></li>
+                        <li><a href="contact.html" class="text-sm text-gray-600 hover:text-green-500">お問い合わせ</a></li>
                     </ul>
                 </div>
-
-                <div class="topic-card">
-                    <h3>機能のご要望</h3>
-                    <p>新しい機能のご提案や改善のアイデアをお待ちしております。あなたの声でマッスルカレンダーをより良くしていきます。</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>使い方のご質問</h3>
-                    <p>アプリの使い方についてご不明な点がある場合は、お気軽にお問い合わせください。</p>
-                </div>
-
-                <div class="topic-card">
-                    <h3>その他のお問い合わせ</h3>
-                    <p>上記以外のご質問やご意見も、お気軽にお寄せください。</p>
+                <div>
+                    <h3 class="font-semibold mb-4">お問い合わせ</h3>
+                    <p><a href="mailto:takuya.atsugi911@gmail.com" class="text-sm text-gray-600 hover:text-green-500">takuya.atsugi911@gmail.com</a></p>
                 </div>
             </div>
-
-            <div class="notice-box">
-                <h3>プライバシーについて</h3>
-                <ul>
-                    <li>いただいた個人情報は、お問い合わせへの対応にのみ使用し、第三者に提供することはありません</li>
-                    <li>本アプリは個人で開発・運営しているため、サポート体制には限りがあります。あらかじめご了承ください</li>
-                </ul>
+            <div class="text-center pt-8 border-t border-gray-200 text-sm text-gray-600">
+                &copy; 2025 厚木拓哉
             </div>
-
-            <footer>
-                <p>提供者: 厚木拓哉</p>
-                <p style="margin-top: 8px;"><a href="index.html">ホームに戻る</a> | <a href="privacy.html">プライバシーポリシー</a> | <a href="terms.html">利用規約</a></p>
-            </footer>
-        </main>
-    </div>
+        </div>
+    </footer>
 </body>
 </html>
