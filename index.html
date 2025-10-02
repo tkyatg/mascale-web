@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="マッスルカレンダー - シンプルなトレーニング記録アプリ">
+    <title>マッスルカレンダー</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #1A1A1A;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #9FE870;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #9FE870;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #8A8A8A;
+            margin-bottom: 40px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #9FE870;
+            color: #000000;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* App Preview */
+        .app-preview {
+            padding: 80px 0;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .preview-card {
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        .preview-card h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+
+        .calendar-demo {
+            background: #1A1A1A;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .calendar-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .day-name {
+            text-align: center;
+            font-size: 12px;
+            color: #8A8A8A;
+            padding: 4px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .calendar-day.today {
+            background: rgba(159, 232, 112, 0.2);
+            color: #9FE870;
+        }
+
+        .calendar-day.selected {
+            background: #9FE870;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .calendar-day.has-workout::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            width: 6px;
+            height: 6px;
+            background: #9FE870;
+            border-radius: 50%;
+        }
+
+        .exercise-list {
+            margin-top: 24px;
+        }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+        }
+
+        .exercise-item:last-child {
+            border-bottom: none;
+        }
+
+        .exercise-bar {
+            width: 6px;
+            height: 45px;
+            border-radius: 3px;
+        }
+
+        .exercise-bar.chest { background: #FF6B6B; }
+        .exercise-bar.shoulders { background: #4ECDC4; }
+        .exercise-bar.arms { background: #FFE66D; }
+        .exercise-bar.back { background: #95E1D3; }
+        .exercise-bar.legs { background: #F38181; }
+        .exercise-bar.abs { background: #AA96DA; }
+
+        .exercise-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .exercise-stats {
+            font-size: 14px;
+            color: #8A8A8A;
+        }
+
+        .body-part-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(159, 232, 112, 0.15);
+            color: #9FE870;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            border: none;
+        }
+
+        .chip.selected {
+            background: #9FE870;
+            color: #000000;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 48px;
+            margin-bottom: 64px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            text-align: left;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: #8A8A8A;
+            line-height: 1.8;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(159, 232, 112, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #1A1A1A;
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: #9FE870;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #1A1A1A;
+            color: #8A8A8A;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .features h2 { font-size: 32px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">マッスルカレンダー</div>
+            <ul>
+                <li><a href="#app">アプリ</a></li>
+                <li><a href="privacy.html">プライバシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>シンプルに<br>トレーニングを記録</h1>
+                <p>マッスルカレンダーは、トレーニングを記録・管理するためのシンプルなアプリです</p>
+                <a href="#" class="download-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                    </svg>
+                    App Storeでダウンロード
+                </a>
+            </div>
+        </section>
+
+        <section id="app" class="app-preview">
+            <div class="container">
+                <div class="preview-grid">
+                    <!-- Calendar Preview -->
+                    <div class="preview-card">
+                        <h3>カレンダー</h3>
+                        <div class="calendar-demo">
+                            <div class="calendar-header">
+                                <div class="day-name">日</div>
+                                <div class="day-name">月</div>
+                                <div class="day-name">火</div>
+                                <div class="day-name">水</div>
+                                <div class="day-name">木</div>
+                                <div class="day-name">金</div>
+                                <div class="day-name">土</div>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day"></div>
+                                <div class="calendar-day has-workout">1</div>
+                                <div class="calendar-day">2</div>
+                                <div class="calendar-day has-workout">3</div>
+                                <div class="calendar-day">4</div>
+                                <div class="calendar-day">5</div>
+                                <div class="calendar-day has-workout">6</div>
+                                <div class="calendar-day">7</div>
+                                <div class="calendar-day">8</div>
+                                <div class="calendar-day">9</div>
+                                <div class="calendar-day today">10</div>
+                                <div class="calendar-day">11</div>
+                                <div class="calendar-day">12</div>
+                                <div class="calendar-day">13</div>
+                                <div class="calendar-day selected has-workout">14</div>
+                                <div class="calendar-day">15</div>
+                                <div class="calendar-day">16</div>
+                                <div class="calendar-day">17</div>
+                                <div class="calendar-day has-workout">18</div>
+                                <div class="calendar-day">19</div>
+                                <div class="calendar-day">20</div>
+                            </div>
+                        </div>
+                        <div class="exercise-list">
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>ベンチプレス</h4>
+                                    <div class="exercise-stats">3 sets · 180 kg</div>
+                                </div>
+                            </div>
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>インクラインベンチプレス</h4>
+                                    <div class="exercise-stats">3 sets · 135 kg</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercises Preview -->
+                    <div class="preview-card">
+                        <h3>エクササイズ</h3>
+                        <div class="body-part-chips">
+                            <button class="chip selected">Chest</button>
+                            <button class="chip">Shoulders</button>
+                            <button class="chip">Arms</button>
+                            <button class="chip">Back</button>
+                            <button class="chip">Legs</button>
+                            <button class="chip">Abs</button>
+                        </div>
+                        <div class="exercise-list">
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>ベンチプレス</h4>
+                                </div>
+                            </div>
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>インクラインベンチプレス</h4>
+                                </div>
+                            </div>
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>ダンベルフライ</h4>
+                                </div>
+                            </div>
+                            <div class="exercise-item">
+                                <div class="exercise-bar chest"></div>
+                                <div class="exercise-info">
+                                    <h4>ケーブルクロスオーバー</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>機能</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <h3>簡単な記録</h3>
+                        <p>トレーニング内容を素早く記録。カレンダーで過去の記録を一目で確認できます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <h3>部位別管理</h3>
+                        <p>胸、肩、腕、背中、脚、腹筋の6部位に分けてエクササイズを管理できます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>完全プライベート</h3>
+                        <p>データは全て端末内にローカル保存。外部へのデータ送信は一切ありません。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>完全無料</h3>
+                        <p>広告なし、課金なし。全ての機能を無料でご利用いただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>マッスルカレンダー</h3>
+                    <p style="color: #8A8A8A; font-size: 14px;">シンプルなトレーニング記録アプリ</p>
+                </div>
+                <div class="footer-section">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <p><a href="mailto:takuya.atsugi911@gmail.com">takuya.atsugi911@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 厚木拓哉
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
