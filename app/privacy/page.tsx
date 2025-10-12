@@ -43,11 +43,35 @@ export default function Privacy() {
                 </ul>
               </SubSection>
 
-              <SubSection title="アナリティクス(任意)">
+              <SubSection title="アナリティクス">
                 <ul className="space-y-4">
-                  <ListItem>アプリの改善を目的として、匿名の使用統計情報を収集する場合があります(例:アプリ起動回数、画面遷移、エクササイズ追加などの操作イベント)</ListItem>
-                  <ListItem>これらの情報は個人を特定できない形式で収集され、Firebase Analytics等のサービスを利用する可能性があります</ListItem>
-                  <ListItem>アナリティクスは設定でオフにすることができます</ListItem>
+                  <ListItem>アプリの改善を目的として、匿名の使用統計情報を収集しています(例:アプリ起動、ワークアウト完了、エクササイズ追加、セット記録、招待コードコピーなどのイベント)</ListItem>
+                  <ListItem>これらの情報は、Firebase Analytics(Google)を使用して、個人を特定できない形式で収集されます</ListItem>
+                  <ListItem>以下の種類の情報を収集しています:</ListItem>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>使用イベント:app_open(アプリ起動)、workout_completed(ワークアウト完了)、exercise_added(エクササイズ追加)、set_logged(セット記録)、invitation_code_copied(招待コードコピー)</span>
+                  </li>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>数値ユーザープロパティ:累計ワークアウト数、週あたりワークアウト数、平均部位数、連続記録日数、部位使用率など</span>
+                  </li>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>技術情報:デバイス種類、OSバージョン、アプリバージョン</span>
+                  </li>
+                  <ListItem>アナリティクスデータは、ユーザーの継続率パターンを理解し、アプリ機能を改善する目的のみで使用されます</ListItem>
+                  <ListItem>個人を特定できる情報(氏名、メールアドレスなど)は一切収集しません</ListItem>
+                  <ListItem>現バージョンではアナリティクスをオフにすることはできませんが、すべてのデータは匿名化されています</ListItem>
+                </ul>
+              </SubSection>
+
+              <SubSection title="アプリ内レビュー">
+                <ul className="space-y-4">
+                  <ListItem>本アプリは、App Store(iOS)およびGoogle Play ストア(Android)が提供するアプリ内レビュー機能を使用します</ListItem>
+                  <ListItem>この機能により、ユーザーはアプリを離れることなくアプリを評価・レビューできます</ListItem>
+                  <ListItem>レビューデータはAppleおよびGoogleがそれぞれ処理し、当方はこの情報を収集または保存しません</ListItem>
+                  <ListItem>レビューのリクエストは、ユーザー体験を妨げないよう、使用パターンに基づいて自動的にトリガーされます</ListItem>
                 </ul>
               </SubSection>
 
@@ -115,13 +139,36 @@ export default function Privacy() {
               </SubSection>
             </Section>
 
-            <Section title="第7条(プライバシーポリシーの変更)">
+            <Section title="第7条(アフィリエイトプログラム)">
+              <p className="text-gray-600 leading-relaxed mb-8">本アプリは、アプリの開発・維持のサポート手段として、第三者サービス(例:iHerb)への紹介コードまたはアフィリエイトリンクを含む場合があります。</p>
+
+              <SubSection title="情報の取扱い">
+                <ul className="space-y-4">
+                  <ListItem>当方は、アフィリエイトリンクの使用に関連する個人情報を収集または保存しません</ListItem>
+                  <ListItem>ユーザーがアフィリエイトリンクをクリックまたは紹介コードを使用すると、第三者のウェブサイトに移動します</ListItem>
+                  <ListItem>第三者のウェブサイトで提供される情報は、それぞれのプライバシーポリシーの対象となります</ListItem>
+                  <ListItem>当方は、第三者サービスから集約された、個人を特定できない統計情報(例:紹介数、獲得した手数料)を受け取る場合があります</ListItem>
+                </ul>
+              </SubSection>
+            </Section>
+
+            <Section title="第8条(多言語対応)">
+              <p className="text-gray-600 leading-relaxed mb-6">本アプリは、ユーザーインターフェースにおいて以下の言語に対応しています:</p>
+              <ul className="space-y-4">
+                <ListItem>英語、日本語、スペイン語、ポルトガル語、ドイツ語、フランス語、中国語(簡体字)、韓国語、イタリア語、インドネシア語、ロシア語、トルコ語、オランダ語、ポーランド語、タイ語、ベトナム語、アラビア語、ヒンディー語、ペルシャ語(ファルシ語)</ListItem>
+                <ListItem>法的文書(利用規約およびプライバシーポリシー)は現在、英語と日本語のみで提供されています</ListItem>
+                <ListItem>その他の言語のユーザーには、法的文書の英語版が表示されます</ListItem>
+                <ListItem>言語設定は端末にローカル保存され、サーバーに送信されることはありません</ListItem>
+              </ul>
+            </Section>
+
+            <Section title="第9条(プライバシーポリシーの変更)">
               <p className="text-gray-600 leading-relaxed">
                 本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、ユーザーに通知することなく、変更することができるものとします。変更後のプライバシーポリシーは、本アプリ内に掲載したときから効力を生じるものとします。
               </p>
             </Section>
 
-            <Section title="第8条(お問い合わせ窓口)">
+            <Section title="第10条(お問い合わせ窓口)">
               <p className="text-gray-600 leading-relaxed mb-8">本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。</p>
               <div className="space-y-2 text-gray-600">
                 <p>
@@ -162,11 +209,35 @@ export default function Privacy() {
                 </ul>
               </SubSection>
 
-              <SubSection title="Analytics (Optional)">
+              <SubSection title="Analytics">
                 <ul className="space-y-4">
-                  <ListItem>For the purpose of improving the app, we may collect anonymous usage statistics (e.g., app launches, screen transitions, operation events such as adding exercises)</ListItem>
-                  <ListItem>This information is collected in a format that cannot identify individuals and may use services such as Firebase Analytics</ListItem>
-                  <ListItem>Analytics can be turned off in settings</ListItem>
+                  <ListItem>For the purpose of improving the App, we collect anonymous usage statistics (e.g., app launch, workout completion, exercise addition, set logging, and invitation code copying events)</ListItem>
+                  <ListItem>This information is collected in a form that cannot identify individuals using Firebase Analytics (Google)</ListItem>
+                  <ListItem>The following types of information are collected:</ListItem>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>Usage events: app_open, workout_completed, exercise_added, set_logged, invitation_code_copied</span>
+                  </li>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>Numerical user properties: lifetime workout count, workouts per week, average body parts per workout, current streak, body part usage rates, etc.</span>
+                  </li>
+                  <li className="flex items-start text-gray-600 leading-relaxed ml-6">
+                    <span className="text-gray-300 mr-3 mt-2 flex-shrink-0">◦</span>
+                    <span>Technical information: device type, OS version, app version</span>
+                  </li>
+                  <ListItem>Analytics data is used solely for understanding user retention patterns and improving app features</ListItem>
+                  <ListItem>No personally identifiable information (name, email, etc.) is collected</ListItem>
+                  <ListItem>Analytics cannot be disabled in the current version, but all data is anonymized</ListItem>
+                </ul>
+              </SubSection>
+
+              <SubSection title="In-App Review">
+                <ul className="space-y-4">
+                  <ListItem>The App uses the in-app review feature provided by the App Store (iOS) and Google Play Store (Android)</ListItem>
+                  <ListItem>This feature allows users to rate and review the App without leaving the App</ListItem>
+                  <ListItem>The review data is handled by Apple and Google respectively, and we do not collect or store this information</ListItem>
+                  <ListItem>The review request is triggered automatically based on usage patterns to avoid disrupting the user experience</ListItem>
                 </ul>
               </SubSection>
 
@@ -234,13 +305,36 @@ export default function Privacy() {
               </SubSection>
             </Section>
 
-            <Section title="Article 7 (Changes to Privacy Policy)">
+            <Section title="Article 7 (Affiliate Program)">
+              <p className="text-gray-600 leading-relaxed mb-8">The App may include referral codes or affiliate links to third-party services (e.g., iHerb) as a means of supporting the development and maintenance of the App.</p>
+
+              <SubSection title="Information Handling">
+                <ul className="space-y-4">
+                  <ListItem>We do not collect or store any personal information related to affiliate link usage</ListItem>
+                  <ListItem>When users click on affiliate links or use referral codes, they are directed to third-party websites</ListItem>
+                  <ListItem>Any information provided on third-party websites is subject to their respective privacy policies</ListItem>
+                  <ListItem>We may receive aggregated, non-personally identifiable statistics (e.g., number of referrals, commissions earned) from the third-party service</ListItem>
+                </ul>
+              </SubSection>
+            </Section>
+
+            <Section title="Article 8 (Multilingual Support)">
+              <p className="text-gray-600 leading-relaxed mb-6">The App supports the following languages for the user interface:</p>
+              <ul className="space-y-4">
+                <ListItem>English, Japanese, Spanish, Portuguese, German, French, Chinese (Simplified), Korean, Italian, Indonesian, Russian, Turkish, Dutch, Polish, Thai, Vietnamese, Arabic, Hindi, and Persian (Farsi)</ListItem>
+                <ListItem>Legal documents (Terms of Service and Privacy Policy) are currently available in English and Japanese only</ListItem>
+                <ListItem>For users of other languages, English versions of the legal documents will be displayed</ListItem>
+                <ListItem>Language preference is stored locally on the device and is not transmitted to any server</ListItem>
+              </ul>
+            </Section>
+
+            <Section title="Article 9 (Changes to Privacy Policy)">
               <p className="text-gray-600 leading-relaxed">
                 The content of this Policy may be changed without notice to users, except as otherwise provided by law or this Policy. The revised Privacy Policy shall become effective when posted within this App.
               </p>
             </Section>
 
-            <Section title="Article 8 (Contact)">
+            <Section title="Article 10 (Contact)">
               <p className="text-gray-600 leading-relaxed mb-8">For inquiries regarding this Policy, please contact us at the following:</p>
               <div className="space-y-2 text-gray-600">
                 <p>
